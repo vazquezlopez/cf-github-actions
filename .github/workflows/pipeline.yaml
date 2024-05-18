@@ -23,14 +23,14 @@ jobs:
         id: deploy
         uses: google-github-actions/deploy-cloud-functions@main
         with:
-          name: testCF
+          name: MyFunction
           runtime: java11
           project_id: nonprod-apigee-svc-3qph
-          entry_point: functions.testCF
+          entry_point: functions.MyFunction
 
       - name: make the url aunthenticated
         run: |
-          gcloud functions add-iam-policy-binding ILoveMkdev --member="allUsers" --role="roles/cloudfunctions.invoker"
+          gcloud functions add-iam-policy-binding MyFunction --member="allUsers" --role="roles/cloudfunctions.invoker"
 
       - name: test the url
         run: curl "${{ steps.deploy.outputs.url }}"
