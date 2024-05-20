@@ -8,12 +8,16 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+      
     steps:
-
       - uses: actions/checkout@v4
 
       - name: Google Auth
         uses: 'google-github-actions/auth@v2'
+       
         with:
           project_id: ${{env.PROJECT}}
           token_format: "access_token"
