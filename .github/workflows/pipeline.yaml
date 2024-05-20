@@ -18,8 +18,8 @@ jobs:
           project_id: ${{env.PROJECT}}
           token_format: "access_token"
           create_credentials_file: true
-          workload_identity_provider: "projects/748025471373/locations/global/workloadIdentityPools/wip-github/providers/github"
-          service_account: ""
+          workload_identity_provider: "projects/748025471373/locations/global/workloadIdentityPools/wip-github/providers/oidc-github"
+          service_account: "sa-cloud-function-deploy@nonprod-apigee-svc-3qph.iam.gserviceaccount.com"
 
       - name: deploy cloud function
         id: deploy
