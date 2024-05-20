@@ -6,7 +6,7 @@ import com.google.cloud.functions.HttpResponse;
 import java.io.BufferedWriter;
 import java.io.IOException;
 
-public class MyFunctions implements HttpFunction {
+public class MyFunction implements HttpFunction {
   @Override
   public void service(HttpRequest request, HttpResponse response)
       throws IOException {
