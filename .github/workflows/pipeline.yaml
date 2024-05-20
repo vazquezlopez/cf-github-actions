@@ -16,6 +16,8 @@ jobs:
         uses: 'google-github-actions/auth@v2'
         with:
           project_id: ${{env.PROJECT}}
+          token_format: "access_token"
+          create_credentials_file: true
           workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
           service_account:  ${{ secrets.GCP_SA }}
 
