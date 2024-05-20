@@ -11,6 +11,6 @@ public class MyFunction implements HttpFunction {
   public void service(HttpRequest request, HttpResponse response)
       throws IOException {
     BufferedWriter writer = response.getWriter();
-    writer.write("I Love MKDEV!");
+    writer.write("I Love Cloud Functions!");
   }
 }
