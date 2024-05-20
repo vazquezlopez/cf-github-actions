@@ -28,7 +28,7 @@
         <artifactId>function-maven-plugin</artifactId>
         <version>0.9.7</version>
         <configuration>
-          <functionTarget>functions.ILoveMkdev</functionTarget>
+          <functionTarget>functions.MyFunction</functionTarget>
         </configuration>
       </plugin>
     </plugins>
