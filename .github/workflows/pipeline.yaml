@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Google Auth
         uses: 'google-github-actions/auth@v2'
@@ -18,8 +18,8 @@ jobs:
           project_id: ${{env.PROJECT}}
           token_format: "access_token"
           create_credentials_file: true
-          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
-          service_account:  ${{ secrets.GCP_SA }}
+          workload_identity_provider: "projects/748025471373/locations/global/workloadIdentityPools/wip-github/providers/github"
+          service_account: ""
 
       - name: deploy cloud function
         id: deploy
