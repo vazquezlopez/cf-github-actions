@@ -21,16 +21,16 @@ jobs:
           project_id: ${{env.PROJECT}}
           token_format: "access_token"
           create_credentials_file: true
-          workload_identity_provider: "projects/748025471373/locations/global/workloadIdentityPools/wip-github/providers/oidc-github"
-          service_account: "sa-cloud-function-deploy@nonprod-apigee-svc-3qph.iam.gserviceaccount.com"
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: ${{ secrets.GCP_SA }}
 
       - name: deploy cloud function
         id: deploy
-        uses: google-github-actions/deploy-cloud-functions@main
+        uses: google-github-actions/deploy-cloud-functions@v3
         with:
           name: MyFunction
           runtime: java11
-          project_id: nonprod-apigee-svc-3qph
+          project_id: ${{ env.PROJECT }}
           entry_point: functions.MyFunction
 
       - name: make the url aunthenticated
